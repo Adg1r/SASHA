@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link href="{% static 'equations.js' %}" rel="script">
+<script>
+function kvadrt()
+{
+d=document
+var a = Number(d.form1.num1.value)//для поля ввода a
+var b = Number(d.form1.num2.value)//для поля ввода b
+var c = Number(d.form1.num3.value)//для поля ввода c
+var diz = eval(Math.pow(b,2)-4*a*c)//расчёт дискримина́нта
+var e = eval((-b+Math.sqrt(diz))/(2*a))// расчёт если дискр. > 0 для х1
+var e1 = eval((-b-Math.sqrt(diz))/(2*a))//расчёт если дискр. > 0 для х2
+var e2 = eval(- c/b)//расчёт если a=0, b и c !=0
+var e3 = eval(-b/2*a)//расчёт если дискр.=0
+var x1 = Number(d.form1.x1.value)//для поля вывода х1
+var x2 = Number(d.form1.x2.value)//для поля вывода х2
+if(a==0 && b==0 && c==0)
+{
+x1 = "Любое число";
+x2 = "Любое число";
+}
+else
+if(a==0 && b==0 && c!=0)
+{
+x1 = "Решения нет";
+x2 = "Решения нет";
+}
+else
+if(a==0 && b!=0 && c!=0)
+{
+x1 =eval(e2);
+x2 =" ";
+}
+else
+if(a!=0 && diz>0)
+{
+x1=eval(e);
+x2=eval(e1);
+}
+else
+if(a!=0 && diz==0)
+{
+x1=eval(e3);
+x2=" ";
+}
+else
+{
+x1 = "Решения нет";
+x2 = "Решения нет";
+}
+d.form1.x1.value=x1;
+d.form1.x2.value=x2;
+}
+</script>
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card text-center" style="width: 32em; align-content: center; margin-top: 10px">
+                <div class="card-header">
+                    Калькулятор квадратных уравнений
+                </div>
+                <div class="card-body">
+
+        <form method="get" action="" name="form1">
+            Введите коэффициент квадратного уравнения:<br><br>
+        A = <input type="text" name="num1" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
+        B = <input type="text" name="num2" size="4">&nbsp;&nbsp;&nbsp;&nbsp;
+        C = <input type="text" name="num3" size="4">&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+            <input class="btn btn-primary w-50" type="button" value="Вывести" onClick="kvadrt()" /><br><br>
+        X1 = <input type="text" name="x1" size="20">&nbsp;&nbsp;&nbsp;&nbsp;
+        X2 = <input type="text" name="x2" size="20"><br><br>
+            <input class="btn btn-primary w-50" type="reset">
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

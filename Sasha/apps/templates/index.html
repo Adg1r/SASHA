@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron w-75">
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p class="lead">Это главная страница сайта Foxy.</p>
+    <hr class="my-4">
+    <p>Тут собрана дополнительная информация о нас.</p>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#instructionModal">Руководство</button>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#aboutModal">О проекте</button>
+</div>
+
+<div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="instructionModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="instructionModalLongTitle">Руководство по использованию</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>1) Пользователь</h5>
+                <p>
+                    На нашем сайте используется система пользовательского доступа. 
+                    Для получения доступа к функциям сайта Вам необходимо провести авторизацию.
+                    Войти в аккаунт можно с помощью выпадающего меню "Авторизация" в правом верхнем углу экрана.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="films_block" style="align-content: center; width: 100px;">
+                <a><img src="{% static '1w.jpg'%}"></a>
+            </div>
+        </div>
+
+        <div class="card text-center" style="width: 32em; align-content: center; margin-top: 10px">
+    <div class="card-header">
+        Описание
+    </div>
+    <div class="card-body">
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <hr>
+            <p>Здесь описано задание, решение на которое человек захочет купить</p>
+            <input class="btn btn-primary w-50" type="submit" value="Купить"/>
+        </form>
+    </div>
+</div>
+    </div>
+</div>
+{% endblock %}
