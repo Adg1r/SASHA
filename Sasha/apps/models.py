@@ -52,17 +52,6 @@ class ThemeChanger(models.Model):
         primary_key=True
     )
 
-class UserAccounts(models.Model):
-    """
-    Модель с аккаунтами пользователя в различных соцсетях
-    user_tg: id-пользователя Telegram
-    user_vk: id-пользователя VK
-    user: пользователь
-    """
-    user_tg = models.CharField(max_length=512)
-    user_vk = models.CharField(max_length=512)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 class EditEmail(models.Model):
     """
     Модель для изменения почтового адреса.

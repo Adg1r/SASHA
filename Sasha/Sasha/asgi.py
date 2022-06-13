@@ -1,5 +1,5 @@
 """
-ASGI config for cum project.
+ASGI config for Sasha project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

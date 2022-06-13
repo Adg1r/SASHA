@@ -124,12 +124,8 @@ def profile_reg_page(request):
                         )
                         theme.save()
 
-                        # Аккаунты пользователя в вк и тг
-                        user_accounts = models.UserAccounts(user=user, user_vk="", user_tg="")
-                        user_accounts.save()
-
                         current_site = get_current_site(request)
-                        mail_subject = 'Активация аккаунта на сайте FOXY'
+                        mail_subject = 'Активация аккаунта на сайте Sasha'
                         message = render_to_string('registration/reg_confirm_email.html', {
                             'user': user,
                             'domain': current_site.domain,
